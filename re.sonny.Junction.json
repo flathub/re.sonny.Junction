@@ -80,8 +80,6 @@
           "type": "script",
           "dest-filename": "junction-wrapper",
           "commands": [
-            "gio mime x-scheme-handler/https re.sonny.Junction.desktop",
-            "gio mime x-scheme-handler/http re.sonny.Junction.desktop",
             "export XDG_DATA_DIRS=$XDG_DATA_DIRS:/run/host/usr/share:/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share",
             "re.sonny.Junction \"$@\""
           ]
@@ -97,11 +95,12 @@
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
           "tag": "v1.2.0",
-          "commit": "288e4843552d7c69a0d877c092545c084f58767b"
+          "commit": "bb9d043ee3f44cdbd90921a877ea76d0f65e8c4d"
         }
       ],
       "post-install": [
-        "desktop-file-edit --set-key=Exec --set-value='/app/bin/junction-wrapper %u' /app/share/applications/re.sonny.Junction.desktop"
+        "desktop-file-edit --set-key=Exec --set-value='/app/bin/junction-wrapper %u' /app/share/applications/re.sonny.Junction.desktop",
+        "sed -i 's/re.sonny.Junction --gapplication-service/junction-wrapper --gapplication-service/g' /app/share/dbus-1/services/re.sonny.Junction.service"
       ]
     }
   ],
