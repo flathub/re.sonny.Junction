@@ -18,6 +18,41 @@
   ],
   "modules": [
     {
+      "name": "libsass",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/lazka/libsass.git",
+          "commit": "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
+        }
+      ]
+    },
+    {
+      "name": "sassc",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/lazka/sassc.git",
+          "commit": "82803377c33247265d779af034eceb5949e78354"
+        }
+      ]
+    },
+    {
+      "name": "libadwaita",
+      "buildsystem": "meson",
+      "config-opts": ["-Dtests=false", "-Dexamples=false", "-Dvapi=false"],
+      "cleanup": ["/include", "/lib/pkgconfig"],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
+          "tag": "1.0.0.alpha.4"
+        }
+      ]
+    },
+    {
       "name": "glib",
       "buildsystem": "meson",
       "config-opts": [
@@ -45,8 +80,6 @@
           "type": "script",
           "dest-filename": "junction-wrapper",
           "commands": [
-            "gio mime x-scheme-handler/https re.sonny.Junction.desktop",
-            "gio mime x-scheme-handler/http re.sonny.Junction.desktop",
             "export XDG_DATA_DIRS=$XDG_DATA_DIRS:/run/host/usr/share:/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share",
             "re.sonny.Junction \"$@\""
           ]
@@ -61,12 +94,13 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.1.0",
-          "commit": "e3414a6a96a97fe98f27987f9bb4f23d46e6d761"
+          "tag": "v1.2.0",
+          "commit": "bb9d043ee3f44cdbd90921a877ea76d0f65e8c4d"
         }
       ],
       "post-install": [
-        "desktop-file-edit --set-key=Exec --set-value='/app/bin/junction-wrapper %u' /app/share/applications/re.sonny.Junction.desktop"
+        "desktop-file-edit --set-key=Exec --set-value='/app/bin/junction-wrapper %u' /app/share/applications/re.sonny.Junction.desktop",
+        "sed -i 's/re.sonny.Junction --gapplication-service/junction-wrapper --gapplication-service/g' /app/share/dbus-1/services/re.sonny.Junction.service"
       ]
     }
   ],
