@@ -18,55 +18,60 @@
   ],
   "modules": [
     {
-      "name": "libsass",
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/lazka/libsass.git",
-          "commit": "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
-        }
-      ]
-    },
-    {
-      "name": "sassc",
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/lazka/sassc.git",
-          "commit": "82803377c33247265d779af034eceb5949e78354"
-        }
-      ]
-    },
-    {
       "name": "libadwaita",
       "buildsystem": "meson",
-      "config-opts": ["-Dtests=false", "-Dexamples=false", "-Dvapi=false"],
+      "config-opts": ["-Dvapi=false", "-Dexamples=false", "-Dtests=false"],
       "cleanup": ["/include", "/lib/pkgconfig"],
       "sources": [
         {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
-          "tag": "1.0.0.alpha.4"
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/libadwaita/1.0/libadwaita-1.0.0.alpha.4.tar.xz",
+          "sha256": "d3000ff56282947f5c51bbb3f9b7e7edb24d212b107bc009ba163464edbb8d7c"
+        }
+      ],
+      "modules": [
+        {
+          "name": "libsass",
+          "buildsystem": "meson",
+          "cleanup": ["*"],
+          "sources": [
+            {
+              "type": "git",
+              "url": "https://github.com/lazka/libsass.git",
+              "branch": "meson",
+              "commit": "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
+            }
+          ]
+        },
+        {
+          "name": "sassc",
+          "buildsystem": "meson",
+          "cleanup": ["*"],
+          "sources": [
+            {
+              "type": "git",
+              "url": "https://github.com/lazka/sassc.git",
+              "branch": "meson",
+              "commit": "82803377c33247265d779af034eceb5949e78354"
+            }
+          ]
         }
       ]
     },
     {
       "name": "glib",
       "buildsystem": "meson",
-      "config-opts": [
-        "-Dtests=false",
-        "-Dselinux=disabled",
-        "-Dinternal_pcre=false"
-      ],
+      "config-opts": ["-Dselinux=disabled", "-Dtests=false"],
       "sources": [
         {
           "type": "archive",
           "url": "https://download.gnome.org/sources/glib/2.70/glib-2.70.0.tar.xz",
           "sha256": "200d7df811c5ba634afbf109f14bb40ba7fde670e89389885da14e27c0840742"
         },
-        { "type": "patch", "path": "0001-do-not-test-exec.patch" }
+        {
+          "type": "patch",
+          "path": "0001-do-not-test-exec.patch"
+        }
       ]
     },
     {
@@ -94,8 +99,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.2.0",
-          "commit": "5945f7088efd3e480e31ebc0d36bf6fa3d00038c"
+          "tag": "v1.3.0",
+          "commit": "ef4abda968986cdaeb39e27527b0d680d0290691"
         }
       ],
       "post-install": [
@@ -103,6 +108,5 @@
         "sed -i 's/re.sonny.Junction --gapplication-service/junction-wrapper --gapplication-service/g' /app/share/dbus-1/services/re.sonny.Junction.service"
       ]
     }
-  ],
-  "x-run-args": ["https://www.gnome.org/"]
+  ]
 }
