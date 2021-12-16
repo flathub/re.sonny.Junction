@@ -17,6 +17,7 @@
     "--filesystem=/var/lib/flatpak:ro"
   ],
   "modules": [
+    /*
     {
       "name": "libadwaita",
       "buildsystem": "meson",
@@ -58,6 +59,7 @@
         }
       ]
     },
+    */
     {
       "name": "glib",
       "buildsystem": "meson",
@@ -70,6 +72,29 @@
         {
           "type": "patch",
           "path": "0001-do-not-test-exec.patch"
+        }
+      ]
+    },
+    {
+      "name": "glib-networking",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/glib-networking/2.70/glib-networking-2.70.1.tar.xz",
+          "sha256": "2a16bfc2d271ccd3266e3fb462bc8a4103c02e81bbb339aa92d6fb060592d7bc"
+        }
+      ]
+    },
+    {
+      "name": "libsoup",
+      "buildsystem": "meson",
+      "config-opts": ["-Dvapi=disabled"],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.2.tar.xz",
+          "sha256": "f0a427656e5fe19e1df71c107e88dfa1b2e673c25c547b7823b6018b40d01159"
         }
       ]
     },
