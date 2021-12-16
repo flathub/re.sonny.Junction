@@ -65,12 +65,12 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/glib/2.70/glib-2.70.0.tar.xz",
-          "sha256": "200d7df811c5ba634afbf109f14bb40ba7fde670e89389885da14e27c0840742"
+          "url": "https://download.gnome.org/sources/glib/2.70/glib-2.70.2.tar.xz",
+          "sha256": "0551459c85cd3da3d58ddc9016fd28be5af503f5e1615a71ba5b512ac945806f"
         },
         {
           "type": "patch",
-          "path": "0001-do-not-test-exec.patch"
+          "path": "build-aux/flatpak/glib-desktopappinfo.patch"
         }
       ]
     },
@@ -94,13 +94,12 @@
     {
       "name": "Junction",
       "buildsystem": "meson",
-      "builddir": true,
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
           "tag": "v1.3.0",
-          "commit": "ad1efeccf69b63e915ac3aeefd7494fc453803c0"
+          "commit": "fc8eb631adaae1ea7c155c875e079b2c5575209e"
         }
       ],
       "post-install": [
