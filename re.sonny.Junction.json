@@ -61,7 +61,6 @@
     {
       "name": "glib",
       "buildsystem": "meson",
-      "config-opts": ["-Dtests=false"],
       "sources": [
         {
           "type": "archive",
