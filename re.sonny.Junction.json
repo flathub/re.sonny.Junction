@@ -99,8 +99,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.3.0",
-          "commit": "3aff5da2d23f4183b04861f469e654abd76eb929"
+          "branch": "screenshots"
         }
       ],
       "post-install": [
