@@ -17,7 +17,6 @@
     "--filesystem=/var/lib/flatpak:ro"
   ],
   "modules": [
-    /*
     {
       "name": "libadwaita",
       "buildsystem": "meson",
@@ -59,7 +58,6 @@
         }
       ]
     },
-    */
     {
       "name": "glib",
       "buildsystem": "meson",
