@@ -124,7 +124,7 @@
       "buildsystem": "meson",
       "sources": [
         {
-          "type": "archive",
+          "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
           "tag": "v1.5.0",
           "commit": "63c8a7073237015d25a407ad0b4575f5d3edf881"
