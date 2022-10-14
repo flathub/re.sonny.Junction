@@ -1,9 +1,9 @@
 {
   "app-id": "re.sonny.Junction",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "41",
+  "runtime-version": "43",
   "sdk": "org.gnome.Sdk",
-  "command": "junction-wrapper",
+  "command": "re.sonny.Junction",
   "finish-args": [
     "--share=ipc",
     "--socket=fallback-x11",
@@ -19,47 +19,15 @@
   ],
   "modules": [
     {
-      "name": "libadwaita",
+      "name": "blueprint",
       "buildsystem": "meson",
-      "config-opts": ["-Dvapi=false", "-Dexamples=false", "-Dtests=false"],
-      "cleanup": ["/include", "/lib/pkgconfig"],
+      "builddir": true,
       "sources": [
         {
-          "type": "archive",
-          "url": "https://download.gnome.org/sources/libadwaita/1.0/libadwaita-1.0.0.alpha.4.tar.xz",
-          "sha256": "d3000ff56282947f5c51bbb3f9b7e7edb24d212b107bc009ba163464edbb8d7c"
-        }
-      ],
-      "modules": [
-        {
-          "name": "libsass",
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://github.com/sass/libsass/archive/3.6.4.tar.gz",
-              "sha256": "f9484d9a6df60576e791566eab2f757a97fd414fce01dd41fc0a693ea5db2889"
-            },
-            {
-              "type": "script",
-              "dest-filename": "autogen.sh",
-              "commands": ["autoreconf -si"]
-            }
-          ]
-        },
-        {
-          "name": "sassc",
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://github.com/sass/sassc/archive/3.6.1.tar.gz",
-              "sha256": "8cee391c49a102b4464f86fc40c4ceac3a2ada52a89c4c933d8348e3e4542a60"
-            },
-            {
-              "type": "script",
-              "dest-filename": "autogen.sh",
-              "commands": ["autoreconf -si"]
-            }
-          ]
+          "type": "git",
+          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
+          "tag": "v0.4.0",
+          "commit": "75a6d95988736ec0471d22ceb07579c0cedac2ad"
         }
       ]
     },
@@ -70,8 +38,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/glib/2.70/glib-2.70.2.tar.xz",
-          "sha256": "0551459c85cd3da3d58ddc9016fd28be5af503f5e1615a71ba5b512ac945806f"
+          "url": "https://download.gnome.org/sources/glib/2.74/glib-2.74.0.tar.xz",
+          "sha256": "3652c7f072d7b031a6b5edd623f77ebc5dcd2ae698598abcc89ff39ca75add30"
         },
         {
           "type": "patch",
@@ -85,25 +53,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/glib-networking/2.70/glib-networking-2.70.1.tar.xz",
-          "sha256": "2a16bfc2d271ccd3266e3fb462bc8a4103c02e81bbb339aa92d6fb060592d7bc"
-        }
-      ]
-    },
-    {
-      "name": "wrapper",
-      "buildsystem": "simple",
-      "build-commands": [
-        "install -D junction-wrapper /app/bin/junction-wrapper"
-      ],
-      "sources": [
-        {
-          "type": "script",
-          "dest-filename": "junction-wrapper",
-          "commands": [
-            "export XDG_DATA_DIRS=$XDG_DATA_DIRS:/run/host/usr/share:/var/lib/snapd/desktop:/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share",
-            "re.sonny.Junction \"$@\""
-          ]
+          "url": "https://download.gnome.org/sources/glib-networking/2.74/glib-networking-2.74.0.tar.xz",
+          "sha256": "1f185aaef094123f8e25d8fa55661b3fd71020163a0174adb35a37685cda613b"
         }
       ]
     },
@@ -114,8 +65,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/flatpak/libportal/releases/download/0.5/libportal-0.5.tar.xz",
-          "sha256": "d8c8cb18a34e5eeb26a39c94044c955995b01de0e139caac5e18c076cf821b3b"
+          "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
+          "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566"
         }
       ]
     },
@@ -126,13 +77,9 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.5.0",
-          "commit": "63c8a7073237015d25a407ad0b4575f5d3edf881"
+          "tag": "v1.6",
+          "commit": "c9da76cae9f8e26957266a4171e7e0212dc63ef5"
         }
-      ],
-      "post-install": [
-        "desktop-file-edit --set-key=Exec --set-value='/app/bin/junction-wrapper %u' /app/share/applications/re.sonny.Junction.desktop",
-        "sed -i 's/re.sonny.Junction --gapplication-service/junction-wrapper --gapplication-service/g' /app/share/dbus-1/services/re.sonny.Junction.service"
       ]
     }
   ]
