@@ -1,7 +1,7 @@
 {
   "id": "re.sonny.Junction",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "46",
+  "runtime-version": "47",
   "sdk": "org.gnome.Sdk",
   "command": "re.sonny.Junction",
   "finish-args": [
@@ -32,29 +32,25 @@
     {
       "name": "blueprint-compiler",
       "buildsystem": "meson",
-      "cleanup": [
-        "*"
-      ],
+      "cleanup": ["*"],
       "sources": [
         {
-          "type": "archive",
-          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.12.0/blueprint-compiler-v0.12.0.tar.gz",
-          "sha256": "6dbb4ea851cec164030abded5949ea77ff92032e23527e1c0597d7efe0c36a81"
+          "type": "git",
+          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
+          "commit": "04ef0944db56ab01307a29aaa7303df6067cb3c0",
+          "tag": "v0.16.0"
         }
       ]
     },
     {
       "name": "glib",
       "buildsystem": "meson",
-      "config-opts": [
-        "-Dselinux=disabled",
-        "-Dtests=false"
-      ],
+      "config-opts": ["-Dselinux=disabled", "-Dtests=false"],
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/glib/2.80/glib-2.80.0.tar.xz",
-          "sha256": "8228a92f92a412160b139ae68b6345bd28f24434a7b5af150ebe21ff587a561d"
+          "url": "https://download.gnome.org/sources/glib/2.84/glib-2.84.1.tar.xz",
+          "sha256": "2b4bc2ec49611a5fc35f86aca855f2ed0196e69e53092bab6bb73396bf30789a"
         },
         {
           "type": "patch",
@@ -68,8 +64,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.0.tar.xz",
-          "sha256": "d8f4f1aab213179ae3351617b59dab5de6bcc9e785021eee178998ebd4bb3acf"
+          "url": "https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.1.tar.xz",
+          "sha256": "b80e2874157cd55071f1b6710fa0b911d5ac5de106a9ee2a4c9c7bee61782f8e"
         }
       ]
     },
@@ -86,8 +82,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/flatpak/libportal/releases/download/0.7.1/libportal-0.7.1.tar.xz",
-          "sha256": "297b90b263fad22190a26b8c7e8ea938fe6b18fb936265e588927179920d3805"
+          "url": "https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz",
+          "sha256": "de801ee349ed3c255a9af3c01b1a401fab5b3fc1c35eb2fd7dfb35d4b8194d7f"
         }
       ]
     },
@@ -98,8 +94,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.8",
-          "commit": "ff603d64620fb48ff6f0424ff9d5d1b184b881dc"
+          "tag": "v1.9",
+          "commit": "52b784a1b27c47a816573a6045b2440f4d314e1d"
         }
       ]
     }
