@@ -1,7 +1,7 @@
 {
   "id": "re.sonny.Junction",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "47",
+  "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
   "command": "re.sonny.Junction",
   "finish-args": [
@@ -30,46 +30,6 @@
   ],
   "modules": [
     {
-      "name": "blueprint-compiler",
-      "buildsystem": "meson",
-      "cleanup": ["*"],
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-          "commit": "04ef0944db56ab01307a29aaa7303df6067cb3c0",
-          "tag": "v0.16.0"
-        }
-      ]
-    },
-    {
-      "name": "glib",
-      "buildsystem": "meson",
-      "config-opts": ["-Dselinux=disabled", "-Dtests=false"],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://download.gnome.org/sources/glib/2.84/glib-2.84.1.tar.xz",
-          "sha256": "2b4bc2ec49611a5fc35f86aca855f2ed0196e69e53092bab6bb73396bf30789a"
-        },
-        {
-          "type": "patch",
-          "path": "build-aux/flatpak/glib-desktopappinfo.patch"
-        }
-      ]
-    },
-    {
-      "name": "glib-networking",
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.1.tar.xz",
-          "sha256": "b80e2874157cd55071f1b6710fa0b911d5ac5de106a9ee2a4c9c7bee61782f8e"
-        }
-      ]
-    },
-    {
       "name": "libportal",
       "buildsystem": "meson",
       "config-opts": [
@@ -94,8 +54,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.9",
-          "commit": "52b784a1b27c47a816573a6045b2440f4d314e1d"
+          "tag": "v1.10",
+          "commit": "cbbf8d6a83411e0b35d1527a4c3e855c4c8a90d0"
         }
       ]
     }
