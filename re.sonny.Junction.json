@@ -14,7 +14,7 @@
     "--filesystem=xdg-data/applications:ro",
     "--filesystem=xdg-data/flatpak:ro",
     "--filesystem=/var/lib/flatpak:ro",
-    "--filesystem=/var/lib/snapd/desktop:ro"
+    "--filesystem=/var/lib/snapd:ro"
   ],
   "cleanup": [
     "/include",
@@ -54,8 +54,8 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.10",
-          "commit": "01ac1f6387a7bc4c7c4b4234d14ccb6bafa51d56"
+          "tag": "v1.11",
+          "commit": "d0f64866d1f0aa50ba2967efd12ff56c2834045d"
         }
       ]
     }
