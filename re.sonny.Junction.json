@@ -3,7 +3,7 @@
   "runtime": "org.gnome.Platform",
   "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
-  "command": "re.sonny.Junction",
+  "command": "junction",
   "finish-args": [
     "--share=ipc",
     "--socket=fallback-x11",
@@ -14,7 +14,9 @@
     "--filesystem=xdg-data/applications:ro",
     "--filesystem=xdg-data/flatpak:ro",
     "--filesystem=/var/lib/flatpak:ro",
-    "--filesystem=/var/lib/snapd:ro"
+    "--filesystem=/var/lib/snapd:ro",
+    "--talk-name=org.gtk.vfs.*",
+    "--filesystem=xdg-run/gvfsd"
   ],
   "cleanup": [
     "/include",
@@ -54,8 +56,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.11",
-          "commit": "d0f64866d1f0aa50ba2967efd12ff56c2834045d"
+          "commit": "da2ad333c2915f4895682f4c972328fe93b8417e"
         }
       ]
     }
