@@ -59,7 +59,7 @@
         {
           "type": "archive",
           "url": "https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz",
-          "sha256": "de801ee349ed3c255a9af3c01b1a401fab5b3fc1c35eb2fd7dfb35d4b8194d7f"
+          "sha256": "22cc7bade6a0d63b5ebeb3ab58f57f71ce1a26a1"
         }
       ]
     },
