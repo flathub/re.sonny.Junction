@@ -70,6 +70,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
+          "tag": "v1.12",
           "commit": "22cc7bade6a0d63b5ebeb3ab58f57f71ce1a26a1"
         }
       ]
