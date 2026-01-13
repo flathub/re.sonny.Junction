@@ -59,7 +59,7 @@
         {
           "type": "archive",
           "url": "https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz",
-          "sha256": "22cc7bade6a0d63b5ebeb3ab58f57f71ce1a26a1"
+          "sha256": "de801ee349ed3c255a9af3c01b1a401fab5b3fc1c35eb2fd7dfb35d4b8194d7f"
         }
       ]
     },
@@ -70,7 +70,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "commit": "4c7aa20cdd3fe91280539f67bb8ad1f78f7ba624"
+          "commit": "22cc7bade6a0d63b5ebeb3ab58f57f71ce1a26a1"
         }
       ]
     }
