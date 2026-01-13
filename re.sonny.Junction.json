@@ -3,7 +3,7 @@
   "runtime": "org.gnome.Platform",
   "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
-  "command": "re.sonny.Junction",
+  "command": "junction",
   "finish-args": [
     "--share=ipc",
     "--socket=fallback-x11",
@@ -30,6 +30,22 @@
   ],
   "modules": [
     {
+      "name": "glib",
+      "buildsystem": "meson",
+      "config-opts": ["-Dtests=false"],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/glib/2.86/glib-2.86.3.tar.xz",
+          "sha256": "b3211d8d34b9df5dca05787ef0ad5d7ca75dec998b970e1aab0001d229977c65"
+        },
+        {
+          "type": "patch",
+          "path": "build-aux/flatpak/glib-appinfo.patch"
+        }
+      ]
+    },
+    {
       "name": "libportal",
       "buildsystem": "meson",
       "config-opts": [
@@ -54,8 +70,7 @@
         {
           "type": "git",
           "url": "https://github.com/sonnyp/Junction.git",
-          "tag": "v1.11",
-          "commit": "d0f64866d1f0aa50ba2967efd12ff56c2834045d"
+          "commit": "22cc7bade6a0d63b5ebeb3ab58f57f71ce1a26a1"
         }
       ]
     }
